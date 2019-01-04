@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { Table, Pagination, Popconfirm } from 'antd';
+import { Table, Pagination, Popconfirm,Icon,Button,Divider } from 'antd';
 import { routerRedux } from 'dva/router';
 import { connect } from 'dva';
 import {CURRENT_PAGE,PAGE_SIZE} from '../constants'
@@ -43,9 +43,10 @@ class Users extends Component {
       key: 'operation',
       render: (text, { id }) => (
         <span>
-          <a href="">Edit</a>
+          <a href="javascript:;">Edit</a>
           <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, id)}>
-            <a href="">Delete</a>
+          <Divider type="vertical" />
+          <a href="javascript:;">Delete</a>
           </Popconfirm>
         </span>
       ),

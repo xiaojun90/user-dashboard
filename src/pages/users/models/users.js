@@ -18,7 +18,7 @@ export default {
         *fetch({ payload: { page } }, { call, put }) { //
           const { data, headers } = yield call(usersService.fetch, { page }); //执行异步的请求，等待返回值
           yield put({ type: 'save', payload: { data, total: headers['x-total-count'],page } }); 
-        },
+        }
       },
     subscriptions: { //订阅器
         setup({ dispatch, history }) {
