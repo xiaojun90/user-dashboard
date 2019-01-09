@@ -5,6 +5,7 @@ function BasicLayout(props) {
     <div className={styles.normal}>
       <Header />
       { props.children }
+      
     </div>
   );
 }

@@ -18,6 +18,22 @@ export default {
         *fetch({ payload: { page } }, { call, put }) { //
           const { data, headers } = yield call(usersService.fetch, { page }); //执行异步的请求，等待返回值
           yield put({ type: 'save', payload: { data, total: headers['x-total-count'],page } }); 
+        },
+        *remove({payload:id},{call,put,select}) {
+            yield call(usersService.remove,id);
+            const page = yield select(state=>state.users.page);
+            yield put({type:'fetch',payload:{page}});
+        },
+        *patch({payload:{id,values}},{call,put,select}) {
+            yield call(usersService.patch,id,values);
+            const page = yield select(state => state.users.page);
+            yield put({type:'fetch',payload:{page}});
+
+        },
+        *create({payload:{values}},{call,put,select}) {
+            yield call(usersService.create,values);
+            const page = yield select(state => state.users.page);
+            yield put({type:'fetch',payload:{page}});
         }
       },
     subscriptions: { //订阅器

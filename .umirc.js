@@ -12,6 +12,7 @@ export default {
       title: 'user-dashboard',
       dll: false,
       hardSource: false,
+      port:8001,
       routes: {
         exclude: [
           /components/,
