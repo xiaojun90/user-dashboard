@@ -17,7 +17,8 @@ export default {
     effects: { //处理异步请求
         *fetch({ payload: { page } }, { call, put }) { //
           const { data, headers } = yield call(usersService.fetch, { page }); //执行异步的请求，等待返回值
-          yield put({ type: 'save', payload: { data, total: headers['x-total-count'],page } }); 
+          console.info(data.data);
+          yield put({ type: 'save', payload: { data:data.data, total: data.total,page } }); 
         },
         *remove({payload:id},{call,put,select}) {
             yield call(usersService.remove,id);

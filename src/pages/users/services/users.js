@@ -1,7 +1,7 @@
 import request from '../../../utils/request';
 //查询
 export function fetch({ page = 1 }) {
-    return request(`/api/users?_page=${page}&_limit=5`);
+    return request(`/api/user/list?page=${page}&limit=5`);
 }
 
 //删除 
